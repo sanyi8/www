@@ -1,16 +1,21 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-
-<body>
-
-    <p>Before the script...</p>
+  <body>
+    <h1>My First Web Page</h1>
+    <p>My first paragraph.</p>
 
     <script>
-        console.log('Hello, world!');
+      alert(5 + 6);
+
+      console.log("Hello World!");
+      console.log("JS is great!");
+
+      var userInput = window.prompt(
+        "What would you like to do? I am listening."
+      );
+
+      // You can now use the userInput variable to do something with the user's input.
+      console.log("User input: " + userInput);
     </script>
-
-    <p>...After the script.</p>
-
-</body>
-
+  </body>
 </html>
