@@ -1,0 +1,102 @@
+<!--Basic doctype with bootstrap-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Valculator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+
+  <!-- adding math.js lib to do math-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.7.0/math.min.js"></script>
+
+  <style>
+    .container {
+      min-width: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <!--add container and row to make form adjustable to center -->
+  <div class="container">
+    <!--create color theme like an icecream van-->
+    <div class="row bg-warning-subtle m-5 rounded shadow border border-info">
+      <h1 class="text-bg-info text-light p-1">
+        <!--adding icons to match color theme-->
+        <i class="fa-solid fa-ice-cream mx-2 py-2"></i>Valculator
+      </h1>
+      <!-- form -->
+      <form class="p-5 w-60">
+        <div class="input-group input-group-md border rounded border-info">
+          <span class="input-group-text bg-info text-light" id="inputGroup-sizing-lg">Gimme Math:</span>
+          <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-lg" id="mathExpression" />
+          <button type="submit" class="btn btn-info text-light">
+            <strong>Go</strong>
+          </button>
+        </div>
+        <!-- Add a result display paragraph -->
+        <p id="result" class="my-5 bg-light text-center text-info p-2">
+          <strong>00</strong>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!--add DOM (labels) to the code objects, which like engineers will connect design with functions-->
+  <script>
+    const mathExpressionInput = document.getElementById('mathExpression');
+    const resultDisplay = document.getElementById('result');
+    // add eventlistener with dom. !important for "notes" => IN JS <!--xy--> not working :) only //
+    document.querySelector('form').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+
+      // code for math calculation inside event listener
+      // perform math calculation
+
+
+      const expression = mathExpressionInput.value;
+
+      try {
+        //evaluate the expression     eval() function => This is where the math happens.
+
+        // #1 version =>
+        // const result = eval(expression);
+
+        // #2 evaluate expression using math.js
+        const result = math.evaluate(expression);
+
+        // display the resiult in the resultDisplay paragraph
+        val() function. This is where the math happens.
+
+          // display result in the resultDisplay paragraph
+
+          resultDisplay.textContent = `Result: ${result}`;
+      } catch (error) {
+        // if error in expression show error as a message
+        resultDisplay.textContent = 'Invalid expression';
+      }
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+
+  <!--fontawesome CDN for icons-->
+  <script src="https://kit.fontawesome.com/a837aa5a0e.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
