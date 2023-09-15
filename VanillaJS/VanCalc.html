@@ -1,0 +1,71 @@
+<!--I need to build the interface in html with bootstrap so I get the doctype + bootstrap-->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body class="bg-danger-subtle">
+
+    <!--I create a container and a row for the form I will paste-->
+    <div class="container my-3">
+        <div class="row rounded bg-danger-subtle border border-danger shadow">
+            <!--I am adding the form to the row-->
+            <!--Remove all unnecessary code-->
+            <form class="col m-5">
+                <span class="badge text-bg-danger my-3">VanCalc</span>
+                <div class="mb-3">
+                    <input id="mathForm" class="form-control form-control-lg bg-success-subtle border border-success"
+                        type="text" placeholder="What to calc?" aria-label=".form-control-lg example">
+                    <!--I add extra space for result-->
+                    <strong>
+                        <p id="result" class="border rounded border-danger text-danger text-center my-3"></p>
+                    </strong>
+                </div>
+
+
+
+
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <button type="submit" class="btn mathButton btn-success">Do Math</button>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!--adding function here to manipulate data starting with DOM than JS-->
+    <script>
+        // I need to address elements and "label" with dom. I will have 2 elements one for get expression one for output.
+
+        const mathFormValue = document.getElementById('mathForm');
+        const resultValue = document.getElementById('result')
+
+        // add event listener to listen for button event
+
+        mathButton.addEventListener('click', function () {
+            // add code to be executed when click happen
+
+        })
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
