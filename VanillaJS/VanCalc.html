@@ -33,7 +33,7 @@
 
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                    <button type="submit" class="btn mathButton btn-success">Do Math</button>
+                    <button type="button" id="mathButton" class="btn mathButton btn-success">Do Math</button>
                 </div>
             </form>
 
@@ -50,21 +50,26 @@
     <script>
         // I need to address elements and "label" with dom. I will have 2 elements one for get expression one for output.
 
-        const mathFormValue = document.getElementById('mathForm');
-        const resultValue = document.getElementById('result')
+        const mathFormValue = document.getElementById('mathForm');  // refers to the input field
+        const resultValue = document.getElementById('result');      // refers to the paragraph where we'll display result
+        const mathButton = document.getElementById('mathButton');   // Added mathButton "Do Math" triggers the calculation
 
-        // add event listener to listen for button event
+        // add event listener to listen for button when click
 
-        mathButton.addEventListener('click', function () {
-            // add code to be executed when click happen
+        // add MATH expression
 
-        })
-
+        mathButton.addEventListener('click', function () {  // waits for click on "Do Math" button
+            const mathExpression = mathFormValue.value;     // store mathExpression from the form .value given by User..
+            try {                                           // and store value in the const mathExpression
+                const result = parseMathExpression(mathExpression);     // defining a custon FUNCTION called parseMathExpression which takes an "expression" as a Parameter
+                resultValue.textContent = `Result: ${result}`;// resultValue = variable "result" spot .textContent = variable itself
+                // for UX we use human friendly way 'Result: ${result}' to display 'result'
+            } catch (error) {
+                resultValue.textContent = 'Invalid input';
+            }
+        });
 
     </script>
-
-
-
 
 </body>
 
