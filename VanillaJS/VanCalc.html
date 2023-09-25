@@ -58,16 +58,11 @@
 
         // add MATH expression
 
-        mathButton.addEventListener('click', function () {  // waits for click on "Do Math" button
-            const mathExpression = mathFormValue.value;     // store mathExpression from the form .value given by User..
-            try {                                           // and store value in the const mathExpression
-                const result = parseMathExpression(mathExpression);     // defining a custon FUNCTION called parseMathExpression which takes an "expression" as a Parameter
-                resultValue.textContent = `Result: ${result}`;// resultValue = variable "result" spot .textContent = variable itself
-                // for UX we use human friendly way 'Result: ${result}' to display 'result'
-            } catch (error) {
-                resultValue.textContent = 'Invalid input';
-            }
-        });
+        mathButton.addEventListener('click', function () {
+            // add code to be executed when click happen
+
+        })
+
 
     </script>
 
