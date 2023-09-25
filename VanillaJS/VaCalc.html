@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VaCalc</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body class="bg-danger-subtle">
+
+    <div class="container my-3">
+        <div class="row rounded bg-danger-subtle border border-danger shadow">
+            <form class="col m-5">
+                <span class="badge text-bg-danger my-3">VaCalc</span>
+                <div class="mb-3">
+                    <input id="mathForm" class="form-control form-control-lg bg-success-subtle border border-success"
+                        type="text" placeholder="What to calc?" aria-label=".form-control-lg example">
+                    <strong>
+                        <p id="result" class="border rounded border-danger text-danger text-center my-3"></p>
+                    </strong>
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <button type="button" id="mathButton" class="btn mathButton btn-success">Do Math</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <script>
+        const mathFormValue = document.getElementById('mathForm');
+        const resultValue = document.getElementById('result');
+        const mathButton = document.getElementById('mathButton');
+        mathButton.addEventListener('click', function () {
+            const mathExpression = mathFormValue.value;
+            try {
+                const result = parseMathExpression(mathExpression);
+                resultValue.textContent = `Result: ${result}`;
+            } catch (error) {
+                resultValue.textContent = 'Invalid input';
+            }
+        });
+        // Custom function to parse and evaluate basic math expressions
+        function parseMathExpression(expression) {
+            // Regular expression to allow only basic math characters and digits
+            const safeCharacters = /^[0-9+*\/()\-. ]*$/;
+            if (!safeCharacters.test(expression)) {
+                throw new Error('Invalid characters in expression');
+            }
+            try {
+                // Replace ',' with '.' for decimal numbers
+                expression = expression.replace(/,/g, '.');
+                // Use a custom parser for basic arithmetic operations
+                const result = evalInfixExpression(expression);
+                if (isNaN(result)) {
+                    throw new Error('Invalid expression');
+                }
+                return result.toFixed(2); // Limit the result to two decimal places
+            } catch (error) {
+                throw new Error('Invalid expression');
+            }
+        }
+        // Custom parser for infix arithmetic expressions
+        function evalInfixExpression(expression) {
+            const operators = [];
+            const operands = [];
+            const precedence = {
+                '+': 1,
+                '-': 1,
+                '*': 2,
+                '/': 2,
+            };
+            const tokenize = expression
+                .replace(/\s+/g, '') // Remove whitespace
+                .match(/(\d+\.\d+|\d+|[+\-*/()])/g); // Tokenize
+            for (const token of tokenize) {
+                if (/\d/.test(token)) {
+                    operands.push(parseFloat(token));
+                } else if (operators.length === 0 || token === '(') {
+                    operators.push(token);
+                } else if (token === ')') {
+                    while (operators.length > 0 && operators[operators.length - 1] !== '(') {
+                        processOperator(operands, operators);
+                    }
+                    operators.pop();
+                } else {
+                    while (
+                        operators.length > 0 &&
+                        precedence[token] <= precedence[operators[operators.length - 1]]
+                    ) {
+                        processOperator(operands, operators);
+                    }
+                    operators.push(token);
+                }
+            }
+            while (operators.length > 0) {
+                processOperator(operands, operators);
+            }
+            if (operands.length === 1) {
+                return operands[0];
+            } else {
+                throw new Error('Invalid expression');
+            }
+        }
+
+        function processOperator(operands, operators) {
+            const operator = operators.pop();
+            const b = operands.pop();
+            const a = operands.pop();
+            switch (operator) {
+                case '+':
+                    operands.push(a + b);
+                    break;
+                case '-':
+                    operands.push(a - b);
+                    break;
+                case '*':
+                    operands.push(a * b);
+                    break;
+                case '/':
+                    operands.push(a / b);
+                    break;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
