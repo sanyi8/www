@@ -20,9 +20,9 @@ const num2 = prompt("Input second number:");
 const num3 = prompt("Input third number:");
 
 // here we check if the numbers are increasing decreasing or neither (else)
-if (num1 < num2 && number2 < num3){ //I tried to chain condition but did not work.I must use &&
+if (num1 < num2 && num2 < num3){ //I tried to chain condition but did not work.I must use &&
     alert("Increasing order")
-} else if (num1 > num2 && number2 > num3){ 
+} else if (num1 > num2 && num2 > num3){ 
     alert("Decreasing order")
 } else {
     alert("Neither increasing or decreasing order")
