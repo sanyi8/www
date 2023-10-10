@@ -1,0 +1,22 @@
+/* Activity 2 - Vanilla JS Loops
+Write a JavaScript program to create the multiplication table (from 1 to 10) of a number.
+
+Expected Output:
+
+Input a number: 6
+
+6 x 1 = 6 
+
+6x10 = 60
+
+Important:
+Don't forget to comment your code.
+ */
+// create a variable number and prompt user for a number to multiply
+// parseInt safety to make sure "number" is a number
+let number = parseInt(prompt("10 x a number: "));
+
+// count to 10 for the multiplier
+for (let i = 1; i <= 10; i++){
+    console.log(number * i)
+}
