@@ -1,5 +1,5 @@
-/* //Sum two numbers
-// The function is declared with two parameters a and b.
+//Sum two numbers
+/* // The function is declared with two parameters a and b.
 function add(a, b) {
 console.log(a + b);
 }
@@ -9,8 +9,8 @@ add(2,5);
 add(3,9);
  */
 
-/* //Sum of Two Numbers
-// declare function with 2 variables
+//Sum of Two Numbers
+/* // declare function with 2 variables
 function add(a, b) {
   return a + b;
 }
