@@ -9,7 +9,7 @@ add(2,5);
 add(3,9);
  */
 
-//Sum of Two Numbers
+/* //Sum of Two Numbers
 // declare function with 2 variables
 function add(a, b) {
   return a + b;
@@ -22,4 +22,19 @@ let number2 = parseFloat(prompt("Enter second number: "));
 let result = add(number1, number2);
 
 // we write out (alert) the "result" which calling the "add" function passing the arguments as a and b
-alert("The sum is: " + result);
+alert("The sum is: " + result); */
+
+// Functions defined as Expressions
+
+// x is a variable which includes a anonymous function which has a parameter
+let x = function (num) {
+  // we multiply the parameter in here with itself
+  return num * num;
+};
+
+//console.log x variable (expression) with argument 4
+console.log(x(4));
+
+//we use x variable in another variable to do the same job with different argument 3
+let y = x(3);
+console.log(y);
