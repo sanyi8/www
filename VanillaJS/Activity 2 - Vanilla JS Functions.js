@@ -32,7 +32,7 @@ function factorial(n) {
           finalNumber *= i;      
       
       };
-      console.log("Factorial is the number: " + finalNumber)
+      console.log(n + " factorial is: " + finalNumber)
     }
   // do this if n non of the aboves
   else {
@@ -41,4 +41,4 @@ function factorial(n) {
 };
 
 
-factorial(-1);
+factorial(6);
