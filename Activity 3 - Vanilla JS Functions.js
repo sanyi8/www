@@ -12,18 +12,26 @@ Negative numbers can not be prime.
 Important:
 Don't forget to comment your code. */
 
-// create a variable
-let n;
+
+// function to check if n is a prime number
 
 function prime(n) {
-    // write an if statement for check it is dividable by 1 or itself |
-    if(n <= 1){      
-      // n must be bigger than 1
-      console.log(n + " is Not a prime number");
-      // in else I check if p dividable by itself AND dividable with 1 without remaining number
-    } else (n % 2 == 0 && n > 2){
-      console.log(n + " is a PRIME number");
-    }
-};
+  // check if n is smaller than 2 as all below is not acceptable
+  if (n < 2) {
+    console.log(n + " is not a prime number");
+    return; // Added return to exit the function if n is less than 2
+  }
 
-prime(16);
+  // for loop starts from 2, increment is smaller than n and increment by 1 each time.
+  for (let i = 2; i < n; i++) {
+    // in the loop we check if n modulus equals to 0 as prime must be divisible by themselves
+    if (n % i === 0) {
+      console.log(n + " is not a prime number");
+      return; // Added return to exit the function if n is divisible by any i
+    }
+  }
+
+  console.log(n + " is a Prime number");
+}
+
+prime(6);
