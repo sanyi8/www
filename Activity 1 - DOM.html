@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset=utf-8 />
+    <title>Activity 1 - Vanilla JS DOM</title>
+</head>
+
+<body>
+    <p id='text'>Vanilla JS DOM</p>
+    <div>
+        <button id="jsstyle" onclick="js_style()">Style</button>
+    </div>
+
+    <script>
+
+        /*Here is a sample html file with a submit button. Now modify the style of the paragraph text through JavaScript code.*/
+
+        //check the submit button ID
+        //get element id="jsstyle"
+        // .innerHTML
+
+        let x = document.getElementById("jsstyle");
+        x.innerHTML = "MODIFIED";
+        x.style.backgroundColor = "yellow";
+        x.style.borderRadius = "6px";
+        x.style.boxShadow = "2px 0px 0px black";
+
+    </script>
+
+</body>
+
+</html>
