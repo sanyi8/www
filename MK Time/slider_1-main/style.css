@@ -26,7 +26,6 @@ header a{
 /* carousel */
 .carousel{
     height: 100vh;
-    margin-top: -50px;
     width: 100vw;
     overflow: hidden;
     position: relative;
@@ -193,7 +192,7 @@ header a{
     position: absolute;
     bottom: 50px;
     left: 50%;
-    border-radius: 30px;
+    border-radius: 0px;
     animation: showImage .5s linear 1 forwards;
 }
 @keyframes showImage{
@@ -236,14 +235,13 @@ header a{
     z-index: 1000;
     width: 0%;
     height: 3px;
-    background-color: #f1683a;
     left: 0;
     top: 0;
 }
 
 .carousel.next .time,
 .carousel.prev .time{
-    animation: runningTime 3s linear 1 forwards;
+    animation: runningTime 6s linear 1 forwards;
 }
 @keyframes runningTime{
     from{ width: 100%}
@@ -258,7 +256,7 @@ header a{
 }
 
 .carousel.prev .list .item:nth-child(2) img{
-    animation: outFrame 0.5s linear 1 forwards;
+    animation: outFrame 3s linear 1 forwards;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -276,7 +274,7 @@ header a{
 .carousel.prev .thumbnail .item:nth-child(1){
     overflow: hidden;
     opacity: 0;
-    animation: showThumbnail .5s linear 1 forwards;
+    animation: showThumbnail .2s linear 1 forwards;
 }
 .carousel.next .arrows button,
 .carousel.prev .arrows button{
@@ -290,6 +288,14 @@ header a{
 {
     animation: contentOut 1.5s linear 1 forwards!important;
 }
+
+.carousel .list .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+  
 
 @keyframes contentOut{
     to{
