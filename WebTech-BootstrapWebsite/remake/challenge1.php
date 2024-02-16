@@ -1,10 +1,37 @@
 
 <?php
-         /* First method to associate create array. */
-         $salaries = array("ally" => 2000, "jade" => 1000, "hannah" => 500);
+         $rota = array( 
+            "ally" => array (
+               "Monday" => '9am - 5pm',
+               "Tuesday" => 'Day off',	
+               "Wednesday" => '10am - 6pm'
+            ),
+            
+            "jade" => array (
+               "Monday" => 'Day off',
+               "Tuesday" => '9am - 5pm',	
+               "Wednesday" => '10am - 6pm'
+            ),
+            
+            "hannah" => array (
+               "Monday" => '10am - 6pm',
+               "Tuesday" => '9am - 5-am',	
+               "Wednesday" => 'Day off'
+            )
+         );
          
-         echo "Salary of Ally is £". $salaries['ally'] . ".00 <br>";
-         echo "Salary of Jade is £".  $salaries['jade']. ".00 <br>";
-         echo "Salary of Hannah is £".  $salaries['hannah']. ".00 <br>";
-     ?>   
-    
+         /* Accessing multi-dimensional array values */
+         echo "Rota for Ally on Monday : " ;
+         echo $rota['ally']['Monday'] . "
+"; 
+         
+         echo "Rota for Jade on Tuesday: ";
+         echo $rota['jade']['Tuesday'] . "
+"; 
+         
+         echo "Rota for Hannah on Wednesday : " ;
+         echo $rota['hannah']['Wednesday'] . "
+"; 
+?>
+   
+   
