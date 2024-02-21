@@ -9,7 +9,7 @@ class Car {
 
 
 
-// JAVA 
+// JAVA
 
 class Car {
     //Class constructor
